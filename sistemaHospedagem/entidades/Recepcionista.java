@@ -27,7 +27,7 @@ public class Recepcionista implements Runnable {
             }
 
             try {
-                Thread.sleep(random.nextInt(5000)); // Tempo de espera aleatório antes da próxima tentativa de alocação
+                Thread.sleep(random.nextInt(5000)); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -36,7 +36,6 @@ public class Recepcionista implements Runnable {
 
     // FUNÇÕES RELACIONADAS ÀS CHAVES
 
-    // Receber a chave do hospede (simplesmente armazena na lista).
     public void receberChaveDoHospede(Hospede hospede) {
         try {
             semaforo.acquire();
@@ -51,7 +50,6 @@ public class Recepcionista implements Runnable {
         }
     }
 
-    // Retornar chaves para o hospede
     public Chave retornarChaveParaHospede(Hospede hospede) {
         try {
             semaforo.acquire();
