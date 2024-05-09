@@ -3,13 +3,9 @@ package sistemaHospedagem.entidades;
 public class Quarto {
     private final int numero;
 
-    // Esta variável indica se o quarto está ocupado ou não (quando o hóspede sai
-    // temporariamente do quarto, ele não fica ocupado, mas a variável isReserved
-    // continuará verdadeira).
     private boolean ocupado;
     private boolean limpo;
 
-    // Esta variável indica se o quarto está reservado ou não.
     private boolean isReserved;
 
     public Quarto(int numero) {
@@ -42,7 +38,7 @@ public class Quarto {
         return limpo;
     }
 
-    // FUNÇÕES RELACIONADAS AO HÓSPEDE SAIR DO QUARTO TEMPORARIAMENTE
+    // FUNÇÃO PARA O HÓSPEDE SAIR DO QUARTO TEMPORARIAMENTE
     public synchronized void sair() {
         this.ocupado = false;
     }
@@ -51,7 +47,6 @@ public class Quarto {
         this.ocupado = true;
     }
 
-    // GETTERS
 
     public boolean getOcupado() {
         return ocupado;
@@ -62,6 +57,6 @@ public class Quarto {
     }
 
     public int getCapacidade() {
-        return 4; // Supondo que cada quarto tenha capacidade para 4 hóspedes
+        return 4;
     }
 }
