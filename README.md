@@ -21,13 +21,13 @@ tes atores do hotel.
 
 ### CÓDIGO
 
-`public class Hotel {
+'public class Hotel {
     private static final int NUM_QUARTOS = 10;
     private static final int NUM_HOSPEDES = 50;
     private static final int NUM_Camareiras = 10;
     private static final int NUM_RECEPCIONISTAS = 5;
 }
-`
+'
 ____________________________________________________________________________________________________________________________________
 
 ## CLASSE QUARTO 
