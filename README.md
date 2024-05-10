@@ -44,12 +44,12 @@ numero, ocupado, limpo e isReserved. Por padrão, um quarto é criado desocupado
 
 ### CÓDIGO 
 
-public Quarto(int numero) {
+    public Quarto(int numero) {
     this.numero = numero;
     this.ocupado = false;
     this.limpo = true;
     this.isReserved = false;
-}
+    }
 _____________________________________________________________________________________________________________________________________
 
 ## CLASSE CHAVE 
@@ -68,7 +68,7 @@ Quarto e associa-os à chave. A chave é criada para representar a relação ent
 
 ### CÓDIGO
 
-public class Chave {
+    public class Chave {
     private Quarto quarto;
     private Hospede hospede;
     public Chave(Hospede hospede, Quarto quarto) {
@@ -80,7 +80,7 @@ public class Chave {
     public Hospede getHospede() {
         return hospede;
     }
-}
+    }
 ________________________________________________________________________________________________________________________________________
 
 ## CLASSE RECEPCIONISTA 
@@ -103,7 +103,7 @@ do hóspede.
 
 ### CÓDIGO
 
-public void run() {
+    public void run() {
     Random random = new Random();
     while (true) {
         synchronized (hotel.getTravaRecepcao()) {
@@ -113,7 +113,7 @@ public void run() {
             }
         }
     }
-}
+    }
 
 SEMÁFORO:
 receberChaveDoHospede(Hospede hospede): Esse método é responsável por receber a chave do quarto de um hóspede ao fazer o check-out, 
@@ -161,7 +161,7 @@ A segunda trava (hotel.getTravaRecepcao()) evita conflitos com outros funcionár
 
 ### CÓDIGO
 
-public void run() {
+    public void run() {
     while (true) {
         synchronized (hotel.getTravaArrumacao()) {
             synchronized (hotel.getTravaRecepcao()) {
@@ -174,7 +174,7 @@ public void run() {
             }
         }
     }
-}
+    }
 
 
 ________________________________________________________________________________________________________________________________________________________
@@ -186,7 +186,7 @@ Essas threads representam as diferentes partes do sistema de hospedagem do hotel
 
 ### CÓDIGO
 
- public class ManagerHotel {
+     public class ManagerHotel {
     public static void main(String[] args) {
         Hotel hotel = new Hotel();
         for (Camareira camareira : hotel.getCamareiras()) {
@@ -199,4 +199,4 @@ Essas threads representam as diferentes partes do sistema de hospedagem do hotel
             new Thread(hospede).start();
         }
     }
-}
+    }
