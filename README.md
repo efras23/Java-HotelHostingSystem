@@ -13,13 +13,13 @@ ________________________________________________________________________________
 
 # FUNCIONALIDADES
 
-# CLASSE HOTEL
+## CLASSE HOTEL
 
 A entiade hotel apresenta a implementação de um sistema de hospedagem, onde são gerenciados os quartos, hóspe
 des, camareiras e recepcionistas.O sistema utiliza threads para simular o funcionamento simultâneo dos diferen
 tes atores do hotel.
 
-# CÓDIGO
+### CÓDIGO
 
 public class Hotel {
     private static final int NUM_QUARTOS = 10;
@@ -29,19 +29,19 @@ public class Hotel {
 }
 _____________________________________________________________________________________________________________________________________
 
-# CLASSE QUARTO 
+## CLASSE QUARTO 
 
 Cada quarto tem um número único de identificação. O estado de um quarto pode variar entre ocupado e desocupado, 
 indicando se está atualmente sendo utilizado por hóspedes ou não. Além disso, um quarto pode estar limpo ou sujo, 
 refletindo se foi higienizado e está prontopara receber novos hóspedes. Um quarto também pode ser reservado, indi
 cando que está temporariamente alocado para um hóspede que ainda não chegou.
 
-# CONSTRUTOR 
+### CONSTRUTOR 
 Quarto(int numero): É o construtor da classe. Recebe como parâmetro o número do quarto e inicializa os atributos 
 numero, ocupado, limpo e isReserved. Por padrão, um quarto é criado desocupado, limpo e não reservado.
 
 
-# CÓDIGO 
+### CÓDIGO 
 
 public Quarto(int numero) {
     this.numero = numero;
@@ -51,23 +51,21 @@ public Quarto(int numero) {
 }
 _____________________________________________________________________________________________________________________________________
 
-# CLASSE CHAVE 
-
-Descrição detalhada da classe Chave:
+## CLASSE CHAVE 
 
 A classe Chave desempenha um papel crucial no sistema de hospedagem, pois é responsável por estabelecer a associação
 direta entre um hóspede e um quarto específico. Aqui está uma explicação mais detalhada
 
-# ATRIBUTOS:
+### ATRIBUTOS
 quarto: Um objeto do tipo Quarto, que representa o quarto associado à chave.
 hospede: Um objeto do tipo Hospede, que representa o hóspede associado à chave.
 
-# CONSTRUTOR
+### CONSTRUTOR
 Chave(Hospede hospede, Quarto quarto): É o construtor da classe. Recebe como parâmetros um objeto Hospede e um objeto 
 Quarto e associa-os à chave. A chave é criada para representar a relação entre o hóspede e o quarto.
 
 
-# CÓDIGO
+### CÓDIGO
 
 public class Chave {
     private Quarto quarto;
@@ -84,12 +82,12 @@ public class Chave {
 }
 ________________________________________________________________________________________________________________________________________
 
-# CLASSE RECEPCIONISTA 
+## CLASSE RECEPCIONISTA 
 
 A classe Recepcionista desempenha um papel importante no sistema de hospedagem do hotel, sendo responsável por gerenciar o check-in 
 e check-out dos hóspedes. Além disso, ela lida com a alocação e desalocação das chaves dos quartos.
 
-# CONSTRUTOR 
+### CONSTRUTOR 
 Recepcionista(Hotel hotel): Este é o construtor da classe Recepcionista. Recebe como parâmetro um objeto Hotel e o associa ao recep
 cionista.
 
@@ -102,7 +100,7 @@ if (hospede != null) { hospede.run(); }: Verifica se há um hóspede disponível
 do hóspede.
 
 
-# CÓDIGO
+### CÓDIGO
 
 public void run() {
     Random random = new Random();
@@ -123,13 +121,13 @@ semáforo. O check-in também é segue a mesma logica.
 
 _________________________________________________________________________________________________________________________________________
 
-# HOSPEDE 
+## CLASSE HOSPEDE 
 
 A classe Hospede representa os hóspedes que chegam ao hotel e interagem com o sistema de hospedagem. Cada instância de Hospede é executada 
 em uma thread separada para simular a chegada e a estadia dos hóspedes no hotel. A classe lida com a alocação de quartos, permanência dos 
 hóspedes e interações com o recepcionista.
 
-# MÉTODOS
+### MÉTODOS
 
 O método run():
 Este método é executado quando a thread do hóspede é iniciada. Ela realiza a criação de um objeto Random para gerar um tempo de chegada alea
@@ -148,19 +146,19 @@ ona aleatoriamente um recepcionista para lidar com a chave do quarto.
 
 ___________________________________________________________________________________________________________________________________________
 
-# CAMAREIRA 
+# CLASSE CAMAREIRA 
 
 A classe Camareira representa um dos funcionários do hotel responsável pela limpeza e arrumação dos quartos. Esta classe é executada em uma
  thread separada e realiza a limpeza dos quartos que estão desocupados e sujos.
 
-SINCRONIZAÇÃO
+### SINCRONIZAÇÃO
 
 A camareira utiliza duas trancas (synchronized) para acessar os quartos do hotel de forma segura.
 A primeira trava (hotel.getTravaArrumacao()) garante que apenas uma camareira por vez possa acessar o processo de limpeza e arrumação dos quartos.
 A segunda trava (hotel.getTravaRecepcao()) evita conflitos com outros funcionários que possam estar acessando os quartos, como os recepcionistas.
 
 
-# CÓDIGO
+### CÓDIGO
 
 public void run() {
     while (true) {
@@ -180,12 +178,12 @@ public void run() {
 
 ________________________________________________________________________________________________________________________________________________________
 
-# CLASSE MAIN
+## CLASSE MAIN
 
 A classe ManagerHotel é responsável por instanciar a classe Hotel e iniciar as threads do programa, incluindo camareiras, recepcionistas e hóspedes.
 Essas threads representam as diferentes partes do sistema de hospedagem do hotel, permitindo que funcionem independentemente.
 
-#CÓDIGO
+### CÓDIGO
 
  public class ManagerHotel {
     public static void main(String[] args) {
